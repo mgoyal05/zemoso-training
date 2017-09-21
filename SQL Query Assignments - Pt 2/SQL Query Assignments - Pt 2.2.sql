@@ -1,4 +1,4 @@
-SELECT COUNT(DISTINCT film.film_id) AS total
+SELECT staff.first_name, staff.last_name, category.name, COUNT(DISTINCT film.film_id) AS total
 FROM film
 INNER JOIN film_category ON film.film_id = film_category.film_id
 INNER JOIN category ON film_category.category_id = category.category_id
