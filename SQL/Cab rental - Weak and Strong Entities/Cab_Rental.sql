@@ -1,5 +1,21 @@
 -- MySQL Workbench Forward Engineering
 
+-- Driver - Drives Relation
+-- Driver: Strong entity
+-- Drives: Weak entity
+
+-- Driver - Cab
+-- Driver: Strong entity
+-- Cab: Weak entity
+
+-- Cab - Drives_In
+-- Cab: Strong entity
+-- Drives_In: Weak entity
+
+-- Customer - Driver_In
+-- Customer: Strong entity
+-- Drives_In: Weak entity
+
 -- -----------------------------------------------------
 -- Schema Cab_Rental
 -- -----------------------------------------------------
