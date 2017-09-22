@@ -101,10 +101,10 @@ DELIMITER $$
 USE `Cab_Rental`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `Cab_Rental`.`Drives_In_BEFORE_INSERT` BEFORE INSERT ON `Drives_In` FOR EACH ROW
 BEGIN
-IF (SELECT Customer_Customer_id,Ride_start_time 
+IF (SELECT Ride_start_time 
 	FROM Drives_In
-	WHERE Ride_start_time = new.Ride_start_time AND Customer_Customer_id = new.Customer_Customer_id) THEN
-    set new.Ride_start_time = NULL AND new.Customer_Customer_id = NULL;
+	WHERE Ride_start_time = new.Ride_start_time) THEN
+    set new.Ride_start_time = NULL;
 END IF;
 
 END$$
@@ -114,10 +114,11 @@ CREATE DEFINER = CURRENT_USER TRIGGER `Cab_Rental`.`Drives_In_BEFORE_UPDATE` BEF
 BEGIN
 IF (SELECT Ride_start_time 
 	FROM Drives_In
-	WHERE Ride_start_time = new.Ride_start_time AND Customer_Customer_id = new.Customer_Customer_id) THEN
-    set new.Ride_start_time = NULL AND new.Customer_Customer_id = NULL;
+	WHERE Ride_start_time = new.Ride_start_time) THEN
+    set new.Ride_start_time = NULL;
 END IF;
 END$$
 
 
 DELIMITER ;
+
